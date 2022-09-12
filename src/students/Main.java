@@ -5,7 +5,12 @@
 package students;
 
 import data.Loadable;
+import data.Loader;
 import data.StubLoader;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -14,12 +19,20 @@ import data.StubLoader;
 public class Main {
 
     private static University uni;
-    private static final Loadable loader = new StubLoader();
-//    private static final Loadable loader = new Loader();
+//    private static final Loadable loader = new StubLoader();
+    private static final Loadable loader = new Loader();
 
     public static void main(String[] args) {
-        uni = loader.load();
+        try {
+            uni = loader.load();
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println(String.format("%s\n%s", e, e.getMessage()));
+            uni = new StubLoader().load();
+        }
         System.out.println(uni);
+        
+        CLI cli = new CLI(uni, new Scanner(System.in));
+        cli.showMenu();
     }
 
 }
