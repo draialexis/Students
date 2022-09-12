@@ -4,17 +4,22 @@
  */
 package students;
 
+import data.Loadable;
+import data.StubLoader;
+
 /**
  *
  * @author aldrai
  */
 public class Main {
 
-    /**
-     * @param args the command line arguments
-     */
+    private static University uni;
+    private static final Loadable loader = new StubLoader();
+//    private static final Loadable loader = new Loader();
+
     public static void main(String[] args) {
-        // TODO code application logic here
+        uni = loader.load();
+        System.out.println(uni);
     }
-    
+
 }
