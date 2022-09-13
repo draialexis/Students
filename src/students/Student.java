@@ -24,6 +24,12 @@ public class Student implements Serializable {
         this.fullName = fullName;
         this.studentID = nextID++; //auto-increments the ID
     }
+    
+    public Student(String dobString, String fullName) {
+        this.dob = LocalDate.parse(dobString);
+        this.fullName = fullName;
+        this.studentID = nextID++; //auto-increments the ID
+    }
 
     public LocalDate getDob() {
         return dob;
@@ -33,7 +39,7 @@ public class Student implements Serializable {
         return fullName;
     }
 
-    public int getStudentNumber() {
+    public int getStudentID() {
         return studentID;
     }
 

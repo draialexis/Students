@@ -37,9 +37,30 @@ public class University implements Serializable {
         faculties.add(faculty);
     }
 
+    public void addStudentToFaculty(int facultyIdx, Student newStudent) {
+        faculties.get(facultyIdx).addStudent(newStudent);
+    }
+
+//    void updateOne(Student oldStudent, Student newStudent) {
+//
+//    }
+    void updateOne(int studentID, String newName) {
+        this.faculties.forEach(f -> {
+            f.getStudents().forEach(s -> {
+                if (s.getStudentID() == studentID) {
+                    s.setFullName(newName);
+                }
+            });
+        });
+    }
+
     @Override
     public String toString() {
         return "University{\n" + "faculties=\n" + faculties + "\n}";
+    }
+
+    void deleteOne(int studentID) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }
