@@ -30,11 +30,15 @@ public abstract class Faculty implements Serializable {
     }
 
     public List<Student> getStudents() {
-        return Collections.unmodifiableList(students);
+        return students;
     }
 
     public void addStudent(Student student) {
         students.add(student);
+    }
+
+    public void removeStudent(Student student) {
+        students.remove(student);
     }
 
     @Override

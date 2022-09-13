@@ -16,9 +16,10 @@ import students.University;
  */
 public class Saver implements Savable {
 
+
     @Override
-    public void save(University university) throws IOException {
-        try ( ObjectOutputStream stream = new ObjectOutputStream(new FileOutputStream(new File("last-save.bin")))) {
+    public void save(University university, String path) throws IOException {
+        try ( ObjectOutputStream stream = new ObjectOutputStream(new FileOutputStream(new File(path)))) {
             stream.writeObject(university);
         }
     }

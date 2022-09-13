@@ -20,7 +20,7 @@ public class StubLoader implements Loadable {
     University uni;
 
     @Override
-    public University load() {
+    public University load(String path) {
         uni = new University();
 
         Faculty iut = new IUT(300);

@@ -14,5 +14,5 @@ import students.University;
  */
 public interface Loadable {
 
-    University load() throws IOException, FileNotFoundException, ClassNotFoundException;
+    University load(String path) throws IOException, FileNotFoundException, ClassNotFoundException;
 }

@@ -7,6 +7,7 @@ package students;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 import students.faculties.Faculty;
 
@@ -16,7 +17,7 @@ import students.faculties.Faculty;
  */
 public class University implements Serializable {
 
-    private List<Faculty> faculties;
+    private final List<Faculty> faculties;
 
     public University() {
         this.faculties = new ArrayList();
@@ -54,13 +55,14 @@ public class University implements Serializable {
         });
     }
 
+    void deleteOne(int studentID) {
+        this.faculties.forEach(f -> {
+            f.getStudents().removeIf(s -> s.getStudentID() == studentID);
+        });
+    }
+
     @Override
     public String toString() {
         return "University{\n" + "faculties=\n" + faculties + "\n}";
     }
-
-    void deleteOne(int studentID) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
 }

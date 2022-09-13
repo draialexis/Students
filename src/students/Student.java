@@ -24,7 +24,7 @@ public class Student implements Serializable {
         this.fullName = fullName;
         this.studentID = nextID++; //auto-increments the ID
     }
-    
+
     public Student(String dobString, String fullName) {
         this.dob = LocalDate.parse(dobString);
         this.fullName = fullName;

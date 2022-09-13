@@ -13,6 +13,6 @@ import students.University;
  */
 public interface Savable {
 
-    void save(University university) throws IOException;
+    void save(University university, String path) throws IOException;
 
 }
